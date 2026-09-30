@@ -1,3 +1,3 @@
-const API_URL = "https://pharmatrack-backend1.onrender.com/api";;
+const API_URL = "https://pt1-264z.onrender.com";;
 
 export default API_URL;
