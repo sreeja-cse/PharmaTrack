@@ -1,9 +1,12 @@
-const mongoose=require("mongoose");
-const connectDB=async()=>{
-    try{
-        await mongoose.connect("mongodb://127.0.0.1:27017/Pharmacy").then(()=>console.log("connected"));
-    }catch(err){
+const mongoose = require("mongoose");
+
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+        console.log("MongoDB connected");
+    } catch (err) {
         console.log(err);
     }
-}
-module.exports=connectDB;
+};
+
+module.exports = connectDB;
