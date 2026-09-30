@@ -1,0 +1,242 @@
+.sale-form-card {
+  width: 100%;
+  max-width: 650px;
+  margin: 30px auto 35px;
+  padding: 24px 28px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+  box-sizing: border-box;
+}
+
+.sale-form-card h2 {
+  margin: 0 0 24px;
+  color: #1e293b;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.sale-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sale-form-card label {
+  display: block;
+  margin-bottom: -7px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sale-form-card input,
+.sale-form-card select {
+  width: 100%;
+  height: 44px;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 14px;
+  outline: none;
+}
+
+.sale-form-card input:focus,
+.sale-form-card select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.sale-form-card input:disabled {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.sale-form-card form > button {
+  margin-top: 5px;
+}
+
+.sale-form-card form > .primary-button,
+.sale-form-card form > .filter-button {
+  width: 140px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sale-form-card form > .filter-button {
+  margin-top: -16px;
+}
+
+.sale-form-card form {
+  position: relative;
+}
+
+.sale-form-card form > .primary-button {
+  margin-right: 150px;
+}
+
+.sale-form-card form > .filter-button {
+  margin-left: 150px;
+  margin-top: -58px;
+}
+
+.primary-button {
+  border: none;
+  border-radius: 8px;
+  padding: 11px 20px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
+}
+
+.filter-button {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px 16px;
+  background: #ffffff;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.filter-button:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.sales-table-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sales-table-card th {
+  background: #f8fafc;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 14px;
+  text-align: left;
+}
+
+.sales-table-card td {
+  color: #475569;
+  font-size: 14px;
+  padding: 14px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.sales-table-card td:last-child {
+  white-space: nowrap;
+}
+
+.sales-table-card td:last-child .filter-button {
+  margin-right: 8px;
+  padding: 8px 14px;
+}
+
+.sales-table-card td:last-child .filter-button:first-child {
+  color: #2563eb;
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.sales-table-card td:last-child .filter-button:first-child:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.sales-table-card td:last-child .filter-button:last-child {
+  color: #dc2626;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.sales-table-card td:last-child .filter-button:last-child:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.sales-search-section {
+  margin-bottom: 40px;
+}
+
+.sales-search-section h2 {
+  color: #1e293b;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.sales-search-section input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #334155;
+  font-size: 14px;
+  outline: none;
+}
+
+.sales-search-section input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.medicine-toolbar {
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.medicine-toolbar label {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.medicine-toolbar input {
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #334155;
+  outline: none;
+}
+
+.medicine-toolbar input:focus {
+  border-color: #2563eb;
+}
+
+@media (max-width: 700px) {
+
+  .sale-form-card {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .sale-form-card form > .primary-button,
+  .sale-form-card form > .filter-button {
+    width: 48%;
+    margin: 5px 0 0;
+  }
+
+  .medicine-toolbar {
+    flex-wrap: wrap;
+  }
+
+}

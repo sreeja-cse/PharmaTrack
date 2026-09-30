@@ -1,0 +1,15 @@
+const express=require("express");
+const router=express.Router();
+const auth=require("../middleware/authmiddleware");
+const authorize=require("../middleware/role");
+const { addMedicine,getmedicines,getmedicinebyid,updatemedicine,deletemedicine,expiredmedicine,lowstock, searchbyname,getstatus} = require("../controllers/medicineController");
+router.post("/medicine",auth,authorize("pharmacist"),addMedicine);
+router.get("/",auth,authorize("pharmacist","admin"),getmedicines);
+router.get("/expired",auth,authorize("admin","pharmacist",),expiredmedicine);
+router.get("/quantity",auth,authorize("admin","pharmacist"),lowstock);
+router.get("/search/:name",auth,authorize("admin","pharmacist"),searchbyname);
+router.get("/status/:status",auth,authorize("admin","pharmacist"),getstatus);
+router.get("/:id",auth,authorize("pharmacist","admin"),getmedicinebyid);
+router.put("/:id",auth,authorize("pharmacist"),updatemedicine);
+router.delete("/:id",auth,authorize("admin"),deletemedicine);
+module.exports=router;
