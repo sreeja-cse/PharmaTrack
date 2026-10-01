@@ -98,7 +98,6 @@ function Medicines() {
 
       }
 
-      // SHOW ONLY THE MEDICINE FOUND BY ID
       setMedicines([data]);
 
     } catch (error) {
@@ -580,7 +579,7 @@ function Medicines() {
 
         {showForm && (
 
-          <div className="data-card">
+          <div className="data-card medicine-form-card">
 
             <h2>
               {editId
@@ -588,7 +587,10 @@ function Medicines() {
                 : "Add Medicine"}
             </h2>
 
-            <form onSubmit={handleSubmit}>
+            <form
+              className="medicine-form"
+              onSubmit={handleSubmit}
+            >
 
               <input
                 type="text"
@@ -651,22 +653,26 @@ function Medicines() {
                 required
               />
 
-              <button
-                type="submit"
-                className="primary-button"
-              >
-                {editId
-                  ? "Update Medicine"
-                  : "Add Medicine"}
-              </button>
+              <div className="form-buttons">
 
-              <button
-                type="button"
-                className="filter-button"
-                onClick={handleCancel}
-              >
-                Cancel
-              </button>
+                <button
+                  type="submit"
+                  className="primary-button"
+                >
+                  {editId
+                    ? "Update Medicine"
+                    : "Add Medicine"}
+                </button>
+
+                <button
+                  type="button"
+                  className="filter-button"
+                  onClick={handleCancel}
+                >
+                  Cancel
+                </button>
+
+              </div>
 
             </form>
 
