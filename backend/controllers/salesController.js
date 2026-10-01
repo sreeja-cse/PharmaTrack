@@ -247,12 +247,7 @@ const sales_date=async(req,res)=>{
             }
         }).populate("medicine");
 
-        if(data.length===0){
-            return res.status(404).json({
-                message:"No sales found for this date range"
-            });
-        }
-
+        
         res.status(200).json(data);
 
     }catch(err){
