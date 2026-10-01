@@ -64,15 +64,12 @@ const addSale=async(req,res)=>{
     }
 };
 
+
 const getsales=async(req,res)=>{
     try{
         const data=await Sales.find()
             .populate("medicine")
             .populate("soldBy");
-
-        if(data.length===0){
-            return res.status(404).json({message:"No sales found"});
-        }
 
         res.status(200).json(data);
 
@@ -80,6 +77,7 @@ const getsales=async(req,res)=>{
         res.status(500).json({message:err.message});
     }
 };
+
 
 const getbyid=async(req,res)=>{
     try{
@@ -103,6 +101,7 @@ const getbyid=async(req,res)=>{
         res.status(500).json({message:err.message});
     }
 };
+
 
 const updatebyid=async(req,res)=>{
     try{
@@ -179,6 +178,7 @@ const updatebyid=async(req,res)=>{
     }
 };
 
+
 const delbyid=async(req,res)=>{
     try{
         const{id}=req.params;
@@ -212,6 +212,7 @@ const delbyid=async(req,res)=>{
         res.status(500).json({message:err.message});
     }
 };
+
 
 const sales_date=async(req,res)=>{
     try{
@@ -247,13 +248,13 @@ const sales_date=async(req,res)=>{
             }
         }).populate("medicine");
 
-        
         res.status(200).json(data);
 
     }catch(err){
         res.status(500).json({message:err.message});
     }
 };
+
 
 const summary=async(req,res)=>{
     try{
@@ -281,6 +282,7 @@ const summary=async(req,res)=>{
         res.status(500).json({message:err.message});
     }
 };
+
 
 const top_medicines=async(req,res)=>{
     try{
@@ -315,6 +317,7 @@ const top_medicines=async(req,res)=>{
         res.status(500).json({message:err.message});
     }
 };
+
 
 const saleByMedicine=async(req,res)=>{
     try{
@@ -357,6 +360,7 @@ const saleByMedicine=async(req,res)=>{
         res.status(500).json({message:err.message});
     }
 };
+
 
 const salesByUser=async(req,res)=>{
     try{
@@ -401,6 +405,7 @@ const salesByUser=async(req,res)=>{
     }
 };
 
+
 module.exports={
     addSale,
     getsales,
@@ -413,4 +418,3 @@ module.exports={
     saleByMedicine,
     salesByUser
 };
-
