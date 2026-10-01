@@ -1,6 +1,8 @@
+
 import { useState } from "react";
 import API_URL from "../services/api";
 import "./Login.css";
+
 function Login() {
 
   const [activeTab, setActiveTab] = useState("login");
@@ -45,7 +47,7 @@ function Login() {
 
       setLoading(true);
 
-      const response = await fetch(`${API_URL}/auth/login`, {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -88,7 +90,7 @@ function Login() {
 
       setLoading(true);
 
-      const response = await fetch(`${API_URL}/auth/register`, {
+      const response = await fetch(`${API_URL}/api/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -329,3 +331,4 @@ function Login() {
 }
 
 export default Login;
+
