@@ -25,21 +25,25 @@ function Login() {
   const [loading, setLoading] = useState(false);
 
   const handleLoginChange = (e) => {
+
     const { name, value } = e.target;
 
     setLoginData({
       ...loginData,
       [name]: value
     });
+
   };
 
   const handleRegisterChange = (e) => {
+
     const { name, value } = e.target;
 
     setRegisterData({
       ...registerData,
       [name]: value
     });
+
   };
 
   const handleLogin = async (e) => {
@@ -50,25 +54,37 @@ function Login() {
 
       setLoading(true);
 
-      const response = await fetch(`${API_URL}/api/auth/login`, {
+      const response = await fetch(`${API_URL}/auth/login`, {
+
         method: "POST",
+
         headers: {
           "Content-Type": "application/json"
         },
+
         body: JSON.stringify(loginData)
+
       });
 
       const data = await response.json();
 
       if (!response.ok) {
+
         alert(data.message || "Login failed");
+
         return;
+
       }
 
       localStorage.setItem("token", data.token);
 
       if (data.user) {
-        localStorage.setItem("user", JSON.stringify(data.user));
+
+        localStorage.setItem(
+          "user",
+          JSON.stringify(data.user)
+        );
+
       }
 
       navigate("/dashboard");
@@ -76,6 +92,7 @@ function Login() {
     } catch (error) {
 
       console.log(error);
+
       alert("Something went wrong");
 
     } finally {
@@ -83,6 +100,7 @@ function Login() {
       setLoading(false);
 
     }
+
   };
 
   const handleRegister = async (e) => {
@@ -93,19 +111,29 @@ function Login() {
 
       setLoading(true);
 
-      const response = await fetch(`${API_URL}/api/auth/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(registerData)
-      });
+      const response = await fetch(
+        `${API_URL}/auth/register`,
+        {
+
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify(registerData)
+
+        }
+      );
 
       const data = await response.json();
 
       if (!response.ok) {
+
         alert(data.message || "Registration failed");
+
         return;
+
       }
 
       alert("Registration successful");
@@ -127,6 +155,7 @@ function Login() {
     } catch (error) {
 
       console.log(error);
+
       alert("Something went wrong");
 
     } finally {
@@ -134,9 +163,11 @@ function Login() {
       setLoading(false);
 
     }
+
   };
 
   return (
+
     <div className="auth-page">
 
       <div className="auth-card">
@@ -148,8 +179,13 @@ function Login() {
           </div>
 
           <div>
+
             <h1>PharmaTrack</h1>
-            <p>Pharmacy Management System</p>
+
+            <p>
+              Pharmacy Management System
+            </p>
+
           </div>
 
         </div>
@@ -158,7 +194,9 @@ function Login() {
 
           <button
             type="button"
-            className={`auth-tab ${activeTab === "login" ? "active" : ""}`}
+            className={`auth-tab ${
+              activeTab === "login" ? "active" : ""
+            }`}
             onClick={() => setActiveTab("login")}
           >
             Sign In
@@ -166,7 +204,9 @@ function Login() {
 
           <button
             type="button"
-            className={`auth-tab ${activeTab === "register" ? "active" : ""}`}
+            className={`auth-tab ${
+              activeTab === "register" ? "active" : ""
+            }`}
             onClick={() => setActiveTab("register")}
           >
             Register
@@ -225,7 +265,9 @@ function Login() {
                 className="auth-button"
                 disabled={loading}
               >
-                {loading ? "Signing In..." : "Sign In"}
+                {loading
+                  ? "Signing In..."
+                  : "Sign In"}
               </button>
 
             </form>
@@ -302,6 +344,7 @@ function Login() {
                   value={registerData.role}
                   onChange={handleRegisterChange}
                 >
+
                   <option value="pharmacist">
                     Pharmacist
                   </option>
@@ -309,6 +352,7 @@ function Login() {
                   <option value="user">
                     User
                   </option>
+
                 </select>
 
               </div>
@@ -318,7 +362,9 @@ function Login() {
                 className="auth-button"
                 disabled={loading}
               >
-                {loading ? "Creating Account..." : "Create Account"}
+                {loading
+                  ? "Creating Account..."
+                  : "Create Account"}
               </button>
 
             </form>
@@ -330,8 +376,9 @@ function Login() {
       </div>
 
     </div>
+
   );
+
 }
 
 export default Login;
-
