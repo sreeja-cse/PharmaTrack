@@ -1,9 +1,12 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import API_URL from "../services/api";
 import "./Login.css";
 
 function Login() {
+
+  const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState("login");
 
@@ -68,7 +71,7 @@ function Login() {
         localStorage.setItem("user", JSON.stringify(data.user));
       }
 
-      window.location.href = "/dashboard";
+      navigate("/dashboard");
 
     } catch (error) {
 
